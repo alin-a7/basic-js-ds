@@ -15,7 +15,6 @@ const { NotImplementedError } = require("../extensions/index.js");
 
 function Stack() {
   let stackArr = [];
-  let i = 0;
   this.push = function (element) {
     stackArr.push(element);
   };
