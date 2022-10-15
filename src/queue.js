@@ -14,45 +14,36 @@ const { NotImplementedError, ListNode } = require("../extensions/index.js");
  * queue.getUnderlyingList() // returns { value: 3, next: null }
  */
 
-function Queue() {
-  let first = null;
-  let last = null;
-  this.getUnderlyingList = function () {
-    return first;
+class Queue {
+
+  first = null;
+  last = null;
+  getUnderlyingList
+  enqueue
+  dequeue
+
+
+  getUnderlyingList = () =>{
+    return this.first;
   };
 
-  this.enqueue = function (value) {
+  enqueue = (value) => {
     let queueNod = new ListNode(value);
-    if (last === null) {
-      first = last = queueNod;
+    if (this.last === null) {
+      this.first = this.last = queueNod;
     }
-    last.next = queueNod;
-    last = queueNod;
+    this.last.next = queueNod;
+    this.last = queueNod;
   };
 
-  this.dequeue = function () {
-    if (first === null) {
-      last === null;
+  dequeue = () => {
+    if (this.first === null) {
+      this.last === null;
       return;
     }
-    first = first.next;
+    this.first = this.first.next;
   };
 }
-// function Queue() {
-//   let queueArr = [];
-
-//   this.getUnderlyingList = function () {
-//     return queueArr
-//   };
-
-//   this.enqueue = function (value) {
-//     queueArr.push(value);
-//   };
-
-//   this.dequeue = function () {
-//     queueArr.shift();
-//   };
-// }
 
 module.exports = {
   Queue,
