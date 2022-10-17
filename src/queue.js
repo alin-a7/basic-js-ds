@@ -15,28 +15,30 @@ const { NotImplementedError, ListNode } = require("../extensions/index.js");
  */
 
 class Queue {
-  first = null;
-  last = null;
-  
+  constructor() {
+    this.queueArr = [];
+  }
+
   getUnderlyingList() {
-    return this.first;
+    let result = {};
+    result.value = this.queueArr[0];
+    if (!this.queueArr[1]) {
+      result.next = null;
+      return result;
+    } else {
+      let resultElse = {};
+      resultElse.value = this.queueArr.shift();
+      resultElse.next = this.getUnderlyingList(this.queueArr);
+      return resultElse;
+    }
   }
 
   enqueue(value) {
-    let queueNod = new ListNode(value);
-    if (this.last === null) {
-      this.first = this.last = queueNod;
-    }
-    this.last.next = queueNod;
-    this.last = queueNod;
+    this.queueArr.push(value);
   }
 
   dequeue() {
-    if (this.first === null) {
-      this.last === null;
-      return;
-    }
-    this.first = this.first.next;
+    return this.queueArr.shift();
   }
 }
 
