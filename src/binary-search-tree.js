@@ -16,16 +16,16 @@ class Node {
 
 class BinarySearchTree {
   constructor() {
-    this.root = null;
+    this.roots = null;
   }
-  // root = null
+  // roots = null
 
-  root() {
-    return this.root;
+  root = () => {
+    return this.roots;
   }
 
   add(data) {
-    this.root = addData(this.root, data);
+    this.roots = addData(this.roots, data);
 
     function addData(node, data) {
       if (!node) {
@@ -47,7 +47,7 @@ class BinarySearchTree {
   }
 
   has(data) {
-    return hasData(this.root, data);
+    return hasData(this.roots, data);
 
     function hasData(node, data) {
       if (!node) {
@@ -64,7 +64,7 @@ class BinarySearchTree {
     }
   }
   find(data) {
-    let currentNode = this.root;
+    let currentNode = this.roots;
     while (currentNode.data !== data) {
       if (data > currentNode.data) {
         currentNode = currentNode.right;
@@ -79,7 +79,7 @@ class BinarySearchTree {
   }
 
   remove(data) {
-    this.root = removeData(this.root, data);
+    this.roots = removeData(this.roots, data);
 
     function removeData(node, data) {
       if (!node) {
@@ -121,11 +121,11 @@ class BinarySearchTree {
   }
 
   min() {
-    if (!this.root) {
+    if (!this.roots) {
       return;
     }
 
-    let node = this.root;
+    let node = this.roots;
     while (node.left) {
       node = node.left;
     }
@@ -134,11 +134,11 @@ class BinarySearchTree {
   }
 
   max() {
-    if (!this.root) {
+    if (!this.roots) {
       return;
     }
 
-    let node = this.root;
+    let node = this.roots;
     while (node.right) {
       node = node.right;
     }
